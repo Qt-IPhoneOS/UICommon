@@ -24,10 +24,10 @@ namespace signal
 
     struct ConnectState
     {
-        ConnectState() : m_state(SignalState::State_Connect){}
+        ConnectState() : mState(SignalState::State_Connect){}
 
-        std::shared_mutex m_mutex;
-        SignalState m_state;
+        std::shared_mutex mMutex;
+        SignalState mState;
     };
 
     /**
@@ -51,7 +51,7 @@ namespace signal
         bool isEmpty() const;
 
     private:
-        std::shared_mutex m_mutex;
+        std::shared_mutex mMutex;
 
         /**
          * @brief Use std::weak_ptr track ConnectState objects in the list without
@@ -61,7 +61,7 @@ namespace signal
          */
         std::list<
             std::pair<std::weak_ptr<ConnectState>, std::function<Func(Args...)>>>
-            m_slotList;
+            mSlotList;
     };
 
     class Connect
@@ -71,27 +71,27 @@ namespace signal
 
         Connect(const std::shared_ptr<ConnectState> &conStsPtr)
         {
-            m_conStsPtr = conStsPtr;
+            mConStsPtr = conStsPtr;
         }
 
         // Copy constructor
-        Connect(const Connect &other) { m_conStsPtr = other.m_conStsPtr; }
+        Connect(const Connect &other) { mConStsPtr = other.mConStsPtr; }
 
         // Copy assignment operator
         Connect &operator=(const Connect &other)
         {
-            m_conStsPtr = other.m_conStsPtr;
+            mConStsPtr = other.mConStsPtr;
             return *this;
         }
 
         void disconnect()
         {
-            std::unique_lock<std::shared_mutex> lock(m_conStsPtr->m_mutex);
-            m_conStsPtr->m_state = SignalState::State_Disconnect;
+            std::unique_lock<std::shared_mutex> lock(mConStsPtr->mMutex);
+            mConStsPtr->mState = SignalState::State_Disconnect;
         }
 
     protected:
-        std::shared_ptr<ConnectState> m_conStsPtr;
+        std::shared_ptr<ConnectState> mConStsPtr;
     };
 
     template <typename Func, typename... Args>
@@ -99,8 +99,8 @@ namespace signal
     Signal<Func(Args...)>::connect(const std::function<Func(Args...)> &slot)
     {
         std::shared_ptr<ConnectState> conSts = std::make_shared<ConnectState>();
-        std::unique_lock<std::shared_mutex> lock(m_mutex);
-        m_slotList.emplace_back(
+        std::unique_lock<std::shared_mutex> lock(mMutex);
+        mSlotList.emplace_back(
             std::make_pair(std::weak_ptr<ConnectState>(conSts), slot));
         return Connect(conSts);
     }
@@ -111,7 +111,7 @@ namespace signal
     {
         bool removeFlg = false;
         {
-            std::shared_lock<std::shared_mutex> lock(m_mutex);
+            std::shared_lock<std::shared_mutex> lock(mMutex);
 
             /**
              * @brief typename inform the compiler that
@@ -121,8 +121,8 @@ namespace signal
             for (typename std::list<
                      std::pair<std::weak_ptr<ConnectState>,
                                std::function<Func(Args...)>>>::iterator it =
-                     m_slotList.begin();
-                 it != m_slotList.end(); ++it)
+                     mSlotList.begin();
+                 it != mSlotList.end(); ++it)
             {
                 std::shared_ptr<ConnectState> conSts =
                     std::get<0>(*it).lock(); // lock(): convert to weak_ptr
@@ -130,8 +130,8 @@ namespace signal
                     removeFlg = true;
                 else
                 {
-                    std::shared_lock<std::shared_mutex> lock(conSts->m_mutex);
-                    if (conSts->m_state == SignalState::State_Connect)
+                    std::shared_lock<std::shared_mutex> lock(conSts->mMutex);
+                    if (conSts->mState == SignalState::State_Connect)
                     {
                         std::get<1> (*it)(args...);
                     }
@@ -143,28 +143,28 @@ namespace signal
             }
             if (removeFlg)
             {
-                std::unique_lock<std::shared_mutex> lock(m_mutex);
+                std::unique_lock<std::shared_mutex> lock(mMutex);
                 typename std::list<
                     std::pair<std::weak_ptr<ConnectState>,
                               std::function<Func(Args...)>>>::iterator it =
-                    m_slotList.begin();
-                while (it != m_slotList.end())
+                    mSlotList.begin();
+                while (it != mSlotList.end())
                 {
                     std::shared_ptr<ConnectState> conSts = std::get<0>(*it).lock();
                     if (conSts == nullptr)
                     {
-                        m_slotList.erase(it++);
+                        mSlotList.erase(it++);
                     }
                     else
                     {
-                        std::shared_lock<std::shared_mutex> lock(conSts->m_mutex);
-                        if (conSts->m_state == SignalState::State_Connect)
+                        std::shared_lock<std::shared_mutex> lock(conSts->mMutex);
+                        if (conSts->mState == SignalState::State_Connect)
                         {
                             ++it;
                         }
                         else
                         {
-                            m_slotList.erase(it++);
+                            mSlotList.erase(it++);
                         }
                     }
                 }
@@ -176,10 +176,10 @@ namespace signal
     void
     Signal<Func(Args...)>::disconnectAllConnection()
     {
-        std::unique_lock<std::shared_mutex> lock(m_mutex);
+        std::unique_lock<std::shared_mutex> lock(mMutex);
         if (!isEmpty())
         {
-            m_slotList.clear();
+            mSlotList.clear();
         }
     }
 
@@ -187,8 +187,8 @@ namespace signal
     bool
     Signal<Func(Args...)>::isEmpty() const
     {
-        std::shared_lock<std::shared_mutex> lock(m_mutex);
-        return m_slotList.empty();
+        std::shared_lock<std::shared_mutex> lock(mMutex);
+        return mSlotList.empty();
     }
 } // namespace signal
 
