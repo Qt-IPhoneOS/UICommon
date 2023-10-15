@@ -11,6 +11,7 @@ resources.prefix = /$${TARGET}
 RESOURCES += UICommon.qrc
 
 HEADERS += \
-    Signal.h
+    FeatureClass/CommonType.h \
+    FeatureClass/Signal.h
 
 DISTFILES +=
