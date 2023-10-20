@@ -12,6 +12,7 @@ RESOURCES += UICommon.qrc
 
 HEADERS += \
     FeatureClass/CommonType.h \
-    FeatureClass/Signal.h
+    FeatureClass/Signal.h \
+    FeatureClass/StackingTask.h
 
 DISTFILES +=
