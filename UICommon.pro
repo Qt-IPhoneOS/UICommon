@@ -11,8 +11,9 @@ resources.prefix = /$${TARGET}
 RESOURCES += UICommon.qrc
 
 HEADERS += \
-    FeatureClass/CommonType.h \
-    FeatureClass/Signal.h \
-    FeatureClass/StackingTask.h
+    Feature/CommonType.h \
+    Feature/Signal.h \
+    Feature/StackingTask.h \
+    Feature/TaskStateProcessCallback.h
 
 DISTFILES +=

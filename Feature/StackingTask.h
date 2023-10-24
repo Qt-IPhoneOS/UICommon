@@ -1,11 +1,11 @@
 #ifndef STACKINGSTASK_H
 #define STACKINGSTASK_H
 
-#include <vector>
-#include <functional>
-#include <future>
 #include <tuple>
 #include <deque>
+#include <vector>
+#include <future>
+#include <functional>
 
 class StackingTaskState {
 public:
@@ -101,6 +101,7 @@ private:
                     lock.unlock();
 
                     // implement initialize function
+                    //mStateObj.initialize(initTuple);
 
                     for (auto& func : mFuncs)
                     {
