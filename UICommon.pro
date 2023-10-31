@@ -12,6 +12,7 @@ RESOURCES += UICommon.qrc
 
 HEADERS += \
     Feature/CommonType.h \
+    Feature/Log.h \
     Feature/Signal.h \
     Feature/StackingTask.h \
     Feature/TaskStateProcessCallback.h
