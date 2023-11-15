@@ -5,6 +5,8 @@ TEMPLATE = lib
 TARGET = uicommon
 DESTDIR = $$PWD/../../Executable
 
+INCLUDEPATH += $$PWD/Feature \
+
 SOURCES += \
 
 resources.prefix = /$${TARGET}
