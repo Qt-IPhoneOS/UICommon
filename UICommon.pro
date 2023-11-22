@@ -13,6 +13,7 @@ resources.prefix = /$${TARGET}
 RESOURCES += UICommon.qrc
 
 HEADERS += \
+    Feature/CommonStruct.h \
     Feature/CommonType.h \
     Feature/Log.h \
     Feature/Signal.h \
