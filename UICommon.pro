@@ -10,7 +10,8 @@ INCLUDEPATH += $$PWD/Feature \
 
 SOURCES += \
     ScreenManager/ScreenInfo.cpp \
-    ScreenManager/ScreenNavigator.cpp
+    ScreenManager/ScreenNavigator.cpp \
+    ScreenManager/ScreenQueue.cpp
 
 resources.prefix = /$${TARGET}
 RESOURCES += UICommon.qrc
@@ -23,6 +24,7 @@ HEADERS += \
     Feature/StackingTask.h \
     Feature/TaskStateProcessCallback.h \
     ScreenManager/ScreenInfo.h \
-    ScreenManager/ScreenNavigator.h
+    ScreenManager/ScreenNavigator.h \
+    ScreenManager/ScreenQueue.h
 
 DISTFILES +=

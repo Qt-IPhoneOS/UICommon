@@ -29,7 +29,6 @@ private:
 
     QQuickView* mView {nullptr};
     QQmlContext* mContext {nullptr};
-    QQmlEngine mEngine;
     QVector<QString> mContextProperties;
     std::unordered_map<uchar, ScreenInfo*> mScreenProperties;
 };
