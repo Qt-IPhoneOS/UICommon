@@ -24,7 +24,7 @@ QQuickView *ScreenQueue::getViewer()
 
 void ScreenQueue::createView()
 {
-    mView->setSource(QUrl("qrc:/Setting/Screen/main.qml"));
+    mView->setSource(QUrl("qrc:/Resources/Screens/MainView.qml"));
     mView->show();
 }
 
