@@ -1,57 +1,69 @@
 #ifndef SCREENQUEUE_H
 #define SCREENQUEUE_H
 
-//#include <QObject>
-//#include <unordered_map>
-//#include <Enums.h>
+#include <QObject>
+#include <QQuickView>
+#include <QQmlContext>
+#include <QQmlComponent>
+#include <QQmlEngine>
+#include <unordered_map>
 
-//class ScreenQueue : public QObject
-//{
-//    Q_OBJECT
+class ScreenQueue : public QObject
+{
+    Q_OBJECT
 
-//private:
+private:
 
-//    struct ScreenNode {
-//        std::pair<Enums::ScreenID, QString> mScreens;
-//        ScreenNode* mParent;
-//        std::vector<ScreenNode*> mChildren;
+    struct ScreenNode {
+        std::pair<uchar, QString> mScreens;
+        ScreenNode* mParent;
+        std::vector<ScreenNode*> mChildren;
 
-//        ~ScreenNode()
-//        {
-//            for (auto child : mChildren)
-//            {
-//                delete child;
-//            }
-//        }
+        ~ScreenNode()
+        {
+            for (auto child : mChildren)
+            {
+                delete child;
+            }
+        }
 
-//        ScreenNode(std::pair<Enums::ScreenID, QString> screens)
-//            : mScreens(screens), mParent(nullptr) {}
+        ScreenNode(std::pair<uchar, QString> screens)
+            : mScreens(screens), mParent(nullptr) {}
 
-//        void addChild(ScreenNode* child) {
-//            child->mParent = this;
-//            mChildren.push_back(child);
-//        }
-//    };
+        void addChild(ScreenNode* child) {
+            child->mParent = this;
+            mChildren.push_back(child);
+        }
+    };
 
-//    explicit ScreenQueue(QObject *parent = nullptr);
+    explicit ScreenQueue(QObject* parent = nullptr);
 
-//public:
-//    static ScreenQueue* instance();
-//    ~ScreenQueue();
+public:
+    static ScreenQueue* instance();
+    ~ScreenQueue();
 
-//    void insertChildrens(ScreenNode*, std::vector<ScreenNode*>);
+    QQuickView* getViewer();
+    void createView();
+    void insertChildrens(ScreenNode*, std::vector<ScreenNode*>);
 
-//    Q_INVOKABLE void showNextScreen(const Enums::ScreenID&);
-//    Q_INVOKABLE void showPreviousScreen();
+    void registerRootScreen(const uchar& screenId, const QString& url);
+    void registerChildScreen(const uchar& parentScreenId, const uchar& screenId, const QString& url);
+    void registerProperty(const QString& str, const QVariant&);
+    void updateProperty(const QString&, const QVariant&);
 
-//signals:
-//    void changeScreen(Enums::ScreenID screenId, QString screen);
+    Q_INVOKABLE void showNextScreen(const uchar&);
+    Q_INVOKABLE void showPreviousScreen();
 
-//protected:
-//    ScreenNode* mRoot;
-//    ScreenNode* mCurrentScreenNode;
-//    Enums::ScreenID mScreenID;
-//    QString mScreenStr;
-//};
+protected:
+    QQuickView* mView {nullptr};
+    QQmlContext* mContext {nullptr};
+
+    uchar mScreenID;
+    QString mScreenStr;
+    ScreenNode* mRoot;
+    ScreenNode* mCurrentScreenNode;
+    QVector<QString> mContextProperties;
+    std::unordered_map<uchar, ScreenNode*> mScreenNodeList;
+};
 
 #endif // SCREENQUEUE_H
