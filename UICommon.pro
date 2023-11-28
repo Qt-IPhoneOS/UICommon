@@ -10,6 +10,7 @@ INCLUDEPATH += $$PWD/Feature \
 
 SOURCES += \
     ScreenManager/ScreenInfo.cpp \
+    ScreenManager/ScreenManager.cpp \
     ScreenManager/ScreenNavigator.cpp \
     ScreenManager/ScreenQueue.cpp
 
@@ -24,6 +25,7 @@ HEADERS += \
     Feature/StackingTask.h \
     Feature/TaskStateProcessCallback.h \
     ScreenManager/ScreenInfo.h \
+    ScreenManager/ScreenManager.h \
     ScreenManager/ScreenNavigator.h \
     ScreenManager/ScreenQueue.h
 

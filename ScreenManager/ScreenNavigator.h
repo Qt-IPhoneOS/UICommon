@@ -7,29 +7,21 @@
 #include <QQmlComponent>
 #include <QQmlEngine>
 #include "ScreenInfo.h"
+#include "ScreenManager.h"
 
-class ScreenNagivator : public QObject
+class ScreenNagivator : public ScreenManager
 {
-    Q_OBJECT
 public:
     static ScreenNagivator *instance();
     ~ScreenNagivator();
 
-    QQuickView* getViewer();
-    void createView();
     void showScreen(uchar screen);
-
-    void registerProperty(const QString& str, const QVariant&);
-    void updateProperty(const QString&, const QVariant&);
 
     void registerScreen(const uchar& screenId, const QString& name, const QString& url);
 
 private:
     ScreenNagivator();
 
-    QQuickView* mView {nullptr};
-    QQmlContext* mContext {nullptr};
-    QVector<QString> mContextProperties;
     std::unordered_map<uchar, ScreenInfo*> mScreenProperties;
 };
 

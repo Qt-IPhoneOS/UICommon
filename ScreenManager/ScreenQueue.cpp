@@ -2,30 +2,13 @@
 #include <QDebug>
 #include <Log.h>
 
-ScreenQueue::ScreenQueue(QObject *parent) : QObject(parent), mCurrentScreenNode(nullptr)
+ScreenQueue::ScreenQueue() : mCurrentScreenNode(nullptr)
 {
-    mView = new QQuickView();
-    mContext = mView->rootContext();
-
-    this->registerProperty("ScreenSource", "");
-    this->registerProperty("ScreenWidth", 600);
-    this->registerProperty("ScreenHeight", 900);
 }
 
 ScreenQueue::~ScreenQueue()
 {
     delete mRoot;
-}
-
-QQuickView *ScreenQueue::getViewer()
-{
-    return mView;
-}
-
-void ScreenQueue::createView()
-{
-    mView->setSource(QUrl("qrc:/Resources/Screens/MainView.qml"));
-    mView->show();
 }
 
 ScreenQueue* ScreenQueue::instance()
@@ -64,23 +47,6 @@ void ScreenQueue::registerChildScreen(const uchar &parentScreenId, const uchar &
     ScreenNode* node = new ScreenNode(std::make_pair(screenId, url));
     parent->addChild(node);
     mScreenNodeList[screenId] = node;
-}
-
-void ScreenQueue::registerProperty(const QString &str, const QVariant &val)
-{
-    if (mContextProperties.contains(str))
-        return;
-
-    mContextProperties.append(str);
-    mContext->setContextProperty(str, val);
-}
-
-void ScreenQueue::updateProperty(const QString &str, const QVariant &val)
-{
-    if (!mContextProperties.contains(str))
-        return;
-
-    mContext->setContextProperty(str, val);
 }
 
 void ScreenQueue::showNextScreen(const uchar& screen)

@@ -3,28 +3,11 @@
 
 ScreenNagivator::ScreenNagivator()
 {
-    mView = new QQuickView();
-    mContext = mView->rootContext();
-
-    this->registerProperty("ScreenSource", "");
-    this->registerProperty("ScreenWidth", 600);
-    this->registerProperty("ScreenHeight", 900);
 }
 
 ScreenNagivator::~ScreenNagivator()
 {
 
-}
-
-QQuickView *ScreenNagivator::getViewer()
-{
-    return mView;
-}
-
-void ScreenNagivator::createView()
-{
-    mView->setSource(QUrl("qrc:/Resources/Screens/MainView.qml"));
-    mView->show();
 }
 
 void ScreenNagivator::showScreen(uchar screen)
@@ -40,23 +23,6 @@ void ScreenNagivator::showScreen(uchar screen)
             this->updateProperty("ScreenSource", screen->getSource());
         }
     }
-}
-
-void ScreenNagivator::registerProperty(const QString &str, const QVariant& val)
-{
-    if (mContextProperties.contains(str))
-        return;
-
-    mContextProperties.append(str);
-    mContext->setContextProperty(str, val);
-}
-
-void ScreenNagivator::updateProperty(const QString &str, const QVariant &val)
-{
-    if (!mContextProperties.contains(str))
-        return;
-
-    mContext->setContextProperty(str, val);
 }
 
 void ScreenNagivator::registerScreen(const uchar &screenId, const QString& name, const QString &url)
