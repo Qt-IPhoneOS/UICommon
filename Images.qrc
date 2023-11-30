@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Components/Assets/back_button.png</file>
+        <file>Components/Assets/delete_icon.png</file>
+        <file>Components/Assets/search_icon.png</file>
+    </qresource>
+</RCC>

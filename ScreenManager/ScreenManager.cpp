@@ -4,6 +4,7 @@ ScreenManager::ScreenManager()
 {
     mView = new QQuickView();
     mContext = mView->rootContext();
+    mView->engine()->addImportPath("qrc:/");
 
     this->registerProperty("ScreenSource", "");
     this->registerProperty("ScreenWidth", 600);

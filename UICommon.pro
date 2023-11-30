@@ -14,8 +14,8 @@ SOURCES += \
     ScreenManager/ScreenNavigator.cpp \
     ScreenManager/ScreenQueue.cpp
 
-resources.prefix = /$${TARGET}
-RESOURCES += UICommon.qrc
+RESOURCES += \
+    UICommon.qrc
 
 HEADERS += \
     Feature/CommonStruct.h \
