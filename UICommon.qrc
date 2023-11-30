@@ -1,9 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>Components/qmldir</file>
-        <file>Components/BackButton.qml</file>
-        <file>Components/HeaderScreen.qml</file>
-        <file>Components/SearchInput.qml</file>
-        <file>Components/Underline.qml</file>
+        <file>QML/Components/BackButton.qml</file>
+        <file>QML/Components/HeaderScreen.qml</file>
+        <file>QML/Components/qmldir</file>
+        <file>QML/Components/SearchInput.qml</file>
+        <file>QML/Components/Underline.qml</file>
     </qresource>
 </RCC>

@@ -1,4 +1,4 @@
-module Components
+module QML.Components
 BackButton 1.0 BackButton.qml
 HeaderScreen 1.0 HeaderScreen.qml
 SearchInput 1.0 SearchInput.qml
