@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QString>
 
+namespace uicommon {
+
 class ScreenInfo : public QObject {
     Q_OBJECT
 
@@ -17,5 +19,7 @@ private:
     QString mSource;
     QString mName;
 };
+
+}
 
 #endif // SCREENINFO_H

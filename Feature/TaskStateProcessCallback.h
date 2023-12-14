@@ -3,6 +3,8 @@
 
 #include <tuple>
 
+namespace uicommon {
+
 template <typename T>
 class TaskStateProcessCallback {
 public:
@@ -19,5 +21,7 @@ public:
 private:
     T mParam;
 };
+
+}
 
 #endif // TASKSTATEPROCESSCALLBACK_H

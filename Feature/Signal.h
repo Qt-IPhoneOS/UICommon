@@ -7,7 +7,7 @@
 #include <mutex>
 #include <shared_mutex>
 
-namespace signal
+namespace uicommon
 {
     /**
      * @brief _Signature is a type parameter that represent a function signature or

@@ -7,6 +7,8 @@
 #include <QQmlComponent>
 #include <QQmlEngine>
 
+namespace uicommon {
+
 class ScreenManager : public QObject
 {
     Q_OBJECT
@@ -25,5 +27,7 @@ protected:
     QQmlContext* mContext {nullptr};
     QVector<QString> mContextProperties;
 };
+
+}
 
 #endif // SCREENMANAGER_H

@@ -9,6 +9,8 @@
 #include "ScreenInfo.h"
 #include "ScreenManager.h"
 
+namespace uicommon {
+
 class ScreenNagivator : public ScreenManager
 {
 public:
@@ -25,4 +27,5 @@ private:
     std::unordered_map<uchar, ScreenInfo*> mScreenProperties;
 };
 
+}
 #endif // SCREENNAVIGATOR_H

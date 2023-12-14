@@ -7,6 +7,8 @@
 #include <future>
 #include <functional>
 
+namespace uicommon {
+
 class StackingTaskState {
 public:
     inline bool isPerforming() const
@@ -135,5 +137,7 @@ private:
     StackingTaskState mState;
     std::mutex mMutexState;
 };
+
+}
 
 #endif

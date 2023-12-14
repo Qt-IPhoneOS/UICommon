@@ -2,6 +2,8 @@
 #include <QDebug>
 #include <Log.h>
 
+using namespace uicommon;
+
 ScreenQueue::ScreenQueue() : mCurrentScreenNode(nullptr)
 {
 }

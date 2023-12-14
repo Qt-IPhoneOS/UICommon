@@ -1,5 +1,6 @@
 #include "ScreenInfo.h"
 
+using namespace uicommon;
 
 ScreenInfo::ScreenInfo(const QString& name, const QString &source) : mSource(source), mName(name)
 {

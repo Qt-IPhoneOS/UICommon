@@ -1,6 +1,8 @@
 #include "ScreenNavigator.h"
 #include <QDebug>
 
+using namespace uicommon;
+
 ScreenNagivator::ScreenNagivator()
 {
 }

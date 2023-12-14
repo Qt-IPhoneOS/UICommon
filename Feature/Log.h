@@ -6,8 +6,9 @@
 #include <QDebug>
 #include <QMetaEnum>
 
+namespace uicommon {
 // print enum
-#define LogEnum(str, val)                                                 \
+#define LOG_ENUM(str, val)                                                 \
     {                                                                     \
         QMetaEnum metaEnum = QMetaEnum::fromType<decltype(val)>();        \
         const char* enumStr = metaEnum.valueToKey(static_cast<int>(val)); \
@@ -18,7 +19,7 @@
     }
 
 // print primitive data
-#define LogBool(str, val)                                                 \
+#define LOG_BOOL(str, val)                                                 \
     {                                                                     \
         if (std::is_same<decltype(val), bool>::value) {                   \
             qWarning() << str << (val ? "true" : "false");                \
@@ -29,5 +30,7 @@
     }
 
 // To Do
+
+}
 
 #endif // LOG_H

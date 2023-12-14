@@ -3,9 +3,13 @@
 
 #include <QString>
 
+namespace uicommon {
+
 struct ScreenModule {
     QString path;
     int state;
 };
+
+}
 
 #endif // COMMONSTRUCT_H

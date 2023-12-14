@@ -9,6 +9,8 @@
 #include <unordered_map>
 #include "ScreenManager.h"
 
+namespace uicommon {
+
 class ScreenQueue : public ScreenManager
 {
     struct ScreenNode {
@@ -54,5 +56,7 @@ protected:
     ScreenNode* mCurrentScreenNode;
     std::unordered_map<uchar, ScreenNode*> mScreenNodeList;
 };
+
+}
 
 #endif // SCREENQUEUE_H

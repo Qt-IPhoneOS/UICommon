@@ -1,5 +1,7 @@
 #include "ScreenManager.h"
 
+using namespace uicommon;
+
 ScreenManager::ScreenManager()
 {
     mView = new QQuickView();

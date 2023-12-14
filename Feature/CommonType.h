@@ -8,6 +8,8 @@
 
 using TypePtr = std::shared_ptr<void>;
 
+namespace uicommon {
+
 class CommonType {
 private:
     TypePtr mType;
@@ -46,6 +48,8 @@ public:
         return *type;
     }
 };
+
+}
 
 
 #endif // COMMONTYPE_H
