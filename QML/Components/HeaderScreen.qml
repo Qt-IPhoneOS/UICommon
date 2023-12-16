@@ -1,11 +1,12 @@
 import QtQuick 2.15
 
-Item {
+Rectangle {
     id: header
     y: 30
     property string backBtnText: ""
     property string headerText: ""
     property bool isBackButton: true
+    color: "transparent"
 
     signal back()
 

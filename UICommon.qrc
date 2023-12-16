@@ -7,5 +7,6 @@
         <file>QML/Components/Underline.qml</file>
         <file>QML/Constants/UIConstants.qml</file>
         <file>QML/Constants/qmldir</file>
+        <file>QML/Components/PasswordComponent.qml</file>
     </qresource>
 </RCC>

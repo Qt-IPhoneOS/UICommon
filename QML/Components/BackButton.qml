@@ -29,7 +29,6 @@ Item {
     MouseArea {
         id: mouseArea
         anchors.fill: parent
-
         onClicked: backButton.back()
     }
 }
