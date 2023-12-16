@@ -1,2 +1,3 @@
 module QML.Constants
 singleton UIConstants 1.0 UIConstants.qml
+singleton UIColors 1.0 UIColors.qml
