@@ -1,29 +1,49 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QML.Constants
 
 Rectangle {
     id: searchContainer
     width: parent.width
-    height: 35
+    height: constant.search_input_height
     anchors {
         top: headerContact.bottom
-        topMargin: 20
+        topMargin: UIAligns.margin_20
         horizontalCenter: parent.horizontalCenter
     }
-    color: "#DCDCDC"
-    radius: 10
+    color: constant.search_input_color
+    radius: constant.search_input_radius
+
+    QtObject {
+        id: constant
+
+        readonly property int search_input_height: 35
+        readonly property int search_input_radius: 10
+        readonly property string search_input_color: "#DCDCDC"
+
+        readonly property int icon_width: 25
+        readonly property int icon_height: 25
+        readonly property string icon_source: "qrc:/Assets/search_icon.png"
+
+        readonly property int align_value: 60
+        readonly property string input_placeholders: "Search"
+
+        readonly property int delete_btn_width: 15
+        readonly property int delete_btn_height: 15
+        readonly property string delete_source: "qrc:/Assets/delete_icon.png"
+    }
 
     Image {
         id: searchIcon
-        width: 25
-        height: 25
+        width: constant.icon_width
+        height: constant.icon_height
         anchors {
             left: parent.left
-            leftMargin: 5
+            leftMargin: UIAligns.margin_5
             verticalCenter: parent.verticalCenter
         }
 
-        source: "qrc:/Assets/search_icon.png"
+        source: constant.icon_source
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -34,19 +54,18 @@ Rectangle {
 
     TextField {
         id: textInput
-        placeholderText: "Search"
-        placeholderTextColor: "#7F7F81"
-        width: parent.width - 60
+        placeholderText: constant.input_placeholders
+        placeholderTextColor: UIColors.grey
+        width: parent.width - constant.align_value
         height: parent.height
-        color: "#000000"
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-        }
+        color: UIColors.black
+        anchors.horizontalCenter: parent.horizontalCenter
+
         background: Item {
             anchors.fill: parent
             Rectangle {
                 anchors.fill: parent
-                color: "transparent"
+                color: UIColors.transparent
             }
         }
         onAccepted: {
@@ -55,13 +74,13 @@ Rectangle {
 
     Image {
         id: deleteTextInputButton
-        width: 15
-        height: 15
+        width: constant.delete_btn_width
+        height: constant.delete_btn_height
         visible: textInput.cursorPosition >= 1
-        source: "qrc:/Assets/delete_icon.png"
+        source: constant.delete_source
         anchors {
             right: parent.right
-            rightMargin: 5
+            rightMargin: UIAligns.margin_5
             verticalCenter: parent.verticalCenter
         }
         MouseArea {

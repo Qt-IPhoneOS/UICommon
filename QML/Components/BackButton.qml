@@ -1,29 +1,38 @@
 import QtQuick 2.15
+import QML.Constants
 
 Item {
     id: backButton
-    x: 8
-    width: 26 + previousText.width + 8
-    height: 26
 
+    width: constant.back_btn_width + UIAligns.margin_5 + previousText.contentWidth
+    height: constant.back_btn_height
     property alias previousText: previousText
+
     signal back()
+
+    QtObject {
+        id: constant
+
+        readonly property int back_btn_width: 22
+        readonly property int back_btn_height: 22
+        readonly property string back_btn_source: "qrc:/Assets/back_button.png"
+    }
 
     Image {
         id: backBtn
-        width: 26
+        width: constant.back_btn_width
         height: parent.height
-        source: "qrc:/Assets/back_button.png"
+        source: constant.back_btn_source
+        anchors.verticalCenter: parent.verticalCenter
     }
 
-    Text {
+    CustomText {
         id: previousText
-        y: 3
         anchors.left: backBtn.right
-        anchors.leftMargin: 8
-        font.pixelSize: 18
+        anchors.leftMargin: UIAligns.margin_5
         font.weight: Font.Light
-        color: "#2196f3"
+        color: UIColors.blue
+        anchors.verticalCenter: parent.verticalCenter
     }
 
     MouseArea {

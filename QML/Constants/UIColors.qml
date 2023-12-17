@@ -10,6 +10,7 @@ QtObject {
     readonly property string light_grey: "#CCCCCC"
     readonly property string greyish: "#DDDDDD"
     readonly property string red: "#EE0000"
+    readonly property string transparent: "transparent"
 
     readonly property string screen_background: "#f0f2f5"
 }

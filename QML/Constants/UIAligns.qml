@@ -5,7 +5,14 @@ QtObject {
     /*
       * margin constants
       */
-    readonly property int margin_top_20: 20
+    readonly property int margin_100: 100
+    readonly property int margin_50: 50
+    readonly property int margin_30: 30
+    readonly property int margin_25: 25
+    readonly property int margin_20: 20
+    readonly property int margin_15: 15
+    readonly property int margin_10: 10
+    readonly property int margin_5: 5
 
     /*
       * opacity constants

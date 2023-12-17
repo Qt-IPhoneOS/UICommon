@@ -16,5 +16,6 @@ QtObject {
       */
     readonly property int smallest_pixel: 12
     readonly property int small_pixel: 16
+    readonly property int medium_pixel: 20
     readonly property int biggest_pixel: 30
 }
