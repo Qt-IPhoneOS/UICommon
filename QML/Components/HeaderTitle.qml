@@ -6,13 +6,10 @@ Item {
     id: content
     property string textStr: ""
 
-    Text {
+    CustomText {
         color: UIColors.black
-        font {
-            pixelSize: 30
-            weight: 600
-            family: "Helvetica"
-        }
-        text: textStr
+        fontSize: UIFonts.biggest_pixel
+        fontWeight: UIFonts.bold_weight
+        textStr: content.textStr
     }
 }

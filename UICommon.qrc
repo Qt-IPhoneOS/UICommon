@@ -10,5 +10,7 @@
         <file>QML/Components/HeaderTitle.qml</file>
         <file>QML/Constants/UIColors.qml</file>
         <file>QML/Components/CustomText.qml</file>
+        <file>QML/Constants/UIFonts.qml</file>
+        <file>QML/Constants/UIAligns.qml</file>
     </qresource>
 </RCC>

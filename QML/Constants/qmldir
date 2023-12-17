@@ -1,3 +1,5 @@
 module QML.Constants
 singleton UIConstants 1.0 UIConstants.qml
 singleton UIColors 1.0 UIColors.qml
+singleton UIFonts 1.0 UIFonts.qml
+singleton UIAligns 1.0 UIAligns.qml
