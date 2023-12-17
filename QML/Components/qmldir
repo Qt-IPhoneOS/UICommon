@@ -3,5 +3,5 @@ BackButton 1.0 BackButton.qml
 HeaderScreen 1.0 HeaderScreen.qml
 SearchInput 1.0 SearchInput.qml
 Underline 1.0 Underline.qml
-HeaderTitle 1.0 HeaderTitle.qml
+TitleScreen 1.0 TitleScreen.qml
 CustomText 1.0 CustomText.qml
