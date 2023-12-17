@@ -2,7 +2,6 @@ import QtQuick 2.15
 
 Item {
     id: backButton
-    x: 8
     width: 26 + previousText.width + 8
     height: 26
 
@@ -18,9 +17,11 @@ Item {
 
     Text {
         id: previousText
-        y: 3
-        anchors.left: backBtn.right
-        anchors.leftMargin: 8
+        anchors {
+            verticalCenter: parent.verticalCenter
+            left: backBtn.right
+            leftMargin: 8
+        }
         font.pixelSize: 18
         font.weight: Font.Light
         color: "#2196f3"
