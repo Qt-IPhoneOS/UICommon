@@ -12,5 +12,6 @@
         <file>QML/Components/CustomText.qml</file>
         <file>QML/Constants/UIFonts.qml</file>
         <file>QML/Constants/UIAligns.qml</file>
+        <file>QML/Components/InfoButton.qml</file>
     </qresource>
 </RCC>

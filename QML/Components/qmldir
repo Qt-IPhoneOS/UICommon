@@ -5,3 +5,4 @@ SearchInput 1.0 SearchInput.qml
 Underline 1.0 Underline.qml
 TitleScreen 1.0 TitleScreen.qml
 CustomText 1.0 CustomText.qml
+InfoButton 1.0 InfoButton.qml
