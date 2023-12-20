@@ -18,7 +18,8 @@ Text {
     }
 
     text: textStr
-    opacity: enableAnimation ? UIAligns.opacity_0 : UIAligns.opacity_1
+    color: UIColors.black
+        opacity: enableAnimation ? UIAligns.opacity_0 : UIAligns.opacity_1
 
     PropertyAnimation {
         id: fadeInAnimation
