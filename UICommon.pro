@@ -14,6 +14,8 @@ SOURCES += \
     ScreenManager/ScreenNavigator.cpp \
     ScreenManager/ScreenQueue.cpp
 
+QML_IMPORT_PATH += $$PWD/
+
 RESOURCES += \
     UICommon.qrc
 
