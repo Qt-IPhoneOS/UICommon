@@ -19,27 +19,4 @@ Text {
 
     text: textStr
     color: UIColors.black
-        opacity: enableAnimation ? UIAligns.opacity_0 : UIAligns.opacity_1
-
-    PropertyAnimation {
-        id: fadeInAnimation
-        target: text
-        property: "opacity"
-        from: UIAligns.opacity_0
-        to: UIAligns.opacity_1
-        duration: enableAnimation ? UIAligns.duration_400 : UIAligns.duration_0
-    }
-
-    PropertyAnimation {
-        id: fadeOutAnimation
-        target: text
-        property: "opacity"
-        from: UIAligns.opacity_1
-        to: UIAligns.opacity_0
-        duration: enableAnimation ? UIAligns.duration_400 : UIAligns.duration_0
-    }
-
-    onVisibleAnimationChanged: {
-        visibleAnimation ? fadeInAnimation.start() : fadeOutAnimation.start()
-    }
 }
