@@ -2,8 +2,8 @@ import QtQuick 2.15
 import QML.Constants
 
 Rectangle {
-    width: 25
-    height: 25
+    width: 30
+    height: 30
     radius: width / 2
     border.color: UIColors.blue
 

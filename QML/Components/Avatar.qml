@@ -2,13 +2,13 @@ import QtQuick 2.15
 import QML.Constants
 import Qt5Compat.GraphicalEffects
 
-Item {
+Rectangle {
     id: avatar
 
-    property bool isImage: false
-    property bool isNoImage: false
+    property bool isImage: true
     property string avatarName: ""
     property string sourceImg: ""
+    color: UIColors.transparent
 
     Rectangle {
         width: parent.width
@@ -16,7 +16,7 @@ Item {
         color: UIColors.grey
         anchors.centerIn: parent
         radius: width / 2
-        visible: isNoImage
+        visible: !isImage
 
         CustomText {
             anchors.fill: parent
