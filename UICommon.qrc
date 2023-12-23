@@ -14,5 +14,6 @@
         <file>QML/Constants/UIAligns.qml</file>
         <file>QML/Components/InfoButton.qml</file>
         <file>QML/Components/Avatar.qml</file>
+        <file>QML/Components/ScrollScreen.qml</file>
     </qresource>
 </RCC>
