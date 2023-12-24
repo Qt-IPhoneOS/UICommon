@@ -13,4 +13,6 @@ QtObject {
     readonly property string transparent: "transparent"
 
     readonly property string screen_background: "#f0f2f5"
+
+    readonly property string color_highlight_text: "#2196f3"
 }
