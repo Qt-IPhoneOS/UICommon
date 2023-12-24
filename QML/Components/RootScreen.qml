@@ -5,8 +5,8 @@ import QML.Constants
 Flickable {
     id: rootItem
 
-    Rectangle {
-        anchors.fill: parent
-        color: UIColors.screen_background
-    }
+    // Rectangle {
+    //     anchors.fill: parent
+    //     color: UIColors.screen_background
+    // }
 }
