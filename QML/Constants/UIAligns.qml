@@ -8,6 +8,7 @@ QtObject {
     readonly property int margin_100: 100
     readonly property int margin_70: 70
     readonly property int margin_50: 50
+    readonly property int margin_40: 40
     readonly property int margin_30: 30
     readonly property int margin_25: 25
     readonly property int margin_20: 20
