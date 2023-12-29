@@ -12,8 +12,8 @@ Item {
 
     QtObject {
         id: constant
-        readonly property int back_btn_width: 22
-        readonly property int back_btn_height: 22
+        readonly property int back_btn_width: 20
+        readonly property int back_btn_height: 20
         readonly property string back_btn_source: "qrc:/Assets/back_button.png"
     }
 
@@ -27,13 +27,12 @@ Item {
 
     CustomText {
         id: previousText
+        verticalAlignment: Text.AlignTop
         anchors {
             verticalCenter: parent.verticalCenter
             left: backBtn.right
             leftMargin: 8
         }
-        font.pixelSize: 18
-        font.weight: Font.Light
         color: UIColors.blue
     }
 

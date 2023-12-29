@@ -46,38 +46,43 @@ Rectangle {
         readonly property int header_height: 60
     }
 
-    BackButton {
-        id: backBtn
-        visible: isBackButton
-        previousText.text: backBtnText
+    Item {
+        width: parent.width
+        height: parent.height - 25
         y: 25
-        anchors {
-            left: parent.left
-            leftMargin: constant.horizontal_align
+
+        BackButton {
+            id: backBtn
+            visible: isBackButton
+            previousText.text: backBtnText
+            anchors {
+                left: parent.left
+                leftMargin: 16
+            }
+            onBack: headerItem.back()
+
         }
-        onBack: headerItem.back()
 
-    }
+        CustomText {
+            id: heading
+            y: -2
+            text: headerText
+            visible: text !== ""
+            width: parent.width
+            fontWeight: UIFonts.bold_weight
+            verticalAlignment: Text.AlignTop
+            horizontalAlignment: Text.AlignHCenter
+        }
 
-    CustomText {
-        text: headerText
-        visible: text !== ""
-        width: parent.width
-        fontSize: UIFonts.medium_pixel
-        fontWeight: Font.Bold
-        horizontalAlignment: Text.AlignHCenter
-        anchors.verticalCenter: parent.verticalCenter
-    }
-
-    CustomText {
-        text: rightText
-        visible: text !== ""
-        width: parent.width
-        font.weight: Font.Light
-        color: UIColors.blue
-        anchors {
-            left: parent.right
-            rightMargin: constant.horizontal_align
+        CustomText {
+            text: rightText
+            visible: text !== ""
+            color: UIColors.blue
+            verticalAlignment: Text.AlignTop
+            anchors {
+                right: parent.right
+                rightMargin: 25
+            }
         }
     }
 
