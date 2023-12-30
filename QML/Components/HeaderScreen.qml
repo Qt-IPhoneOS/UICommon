@@ -59,7 +59,7 @@ Rectangle {
                 left: parent.left
                 leftMargin: 16
             }
-            onBack: headerItem.back()
+            onBack: header.back()
 
         }
 
