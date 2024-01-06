@@ -3,7 +3,7 @@ CONFIG += c++20
 
 TEMPLATE = lib
 TARGET = uicommon
-DESTDIR = $$PWD/../../Executable
+DESTDIR = $$PWD/../../executable
 
 INCLUDEPATH += $$PWD/Feature \
                $$PWD/ScreenManager \
