@@ -28,6 +28,26 @@ void ScreenManager::createView()
     mView->show();
 }
 
+void ScreenManager::setQQmlEngine(QQmlEngine *engine)
+{
+    mEngine = engine;
+}
+
+QQmlEngine *ScreenManager::getEngine()
+{
+    return mEngine;
+}
+
+void ScreenManager::setQQuickWindow(QQuickWindow *window)
+{
+    mWindow = window;
+}
+
+QQuickWindow *ScreenManager::getWindow()
+{
+    return mWindow;
+}
+
 void ScreenManager::registerProperty(const QString &str, const QVariant &val)
 {
     if (mContextProperties.contains(str))

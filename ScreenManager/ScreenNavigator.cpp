@@ -3,16 +3,16 @@
 
 using namespace uicommon;
 
-ScreenNagivator::ScreenNagivator()
+ScreenNavigator::ScreenNavigator()
 {
 }
 
-ScreenNagivator::~ScreenNagivator()
+ScreenNavigator::~ScreenNavigator()
 {
 
 }
 
-void ScreenNagivator::showScreen(uchar screen)
+void ScreenNavigator::showScreen(uchar screen)
 {
     if (mView == nullptr)
         return;
@@ -27,7 +27,7 @@ void ScreenNagivator::showScreen(uchar screen)
     }
 }
 
-void ScreenNagivator::registerScreen(const uchar &screenId, const QString& name, const QString &url)
+void ScreenNavigator::registerScreen(const uchar &screenId, const QString& name, const QString &url)
 {
     if (mScreenProperties.find(screenId) != mScreenProperties.end())
         return;
@@ -36,12 +36,12 @@ void ScreenNagivator::registerScreen(const uchar &screenId, const QString& name,
     mScreenProperties[screenId] = screen;
 }
 
-ScreenNagivator* ScreenNagivator::instance()
+ScreenNavigator* ScreenNavigator::instance()
 {
-    ScreenNagivator* ins = nullptr;
+    ScreenNavigator* ins = nullptr;
     if (ins == nullptr)
     {
-        ins = new ScreenNagivator();
+        ins = new ScreenNavigator();
     }
     return ins;
 }

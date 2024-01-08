@@ -11,18 +11,18 @@
 
 namespace uicommon {
 
-class ScreenNagivator : public ScreenManager
+class ScreenNavigator : public ScreenManager
 {
 public:
-    static ScreenNagivator *instance();
-    ~ScreenNagivator();
+    static ScreenNavigator *instance();
+    ~ScreenNavigator();
 
     void showScreen(uchar screen);
 
     void registerScreen(const uchar& screenId, const QString& name, const QString& url);
 
 private:
-    ScreenNagivator();
+    ScreenNavigator();
 
     std::unordered_map<uchar, ScreenInfo*> mScreenProperties;
 };
